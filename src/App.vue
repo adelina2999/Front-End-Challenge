@@ -5,7 +5,6 @@
         <div v-for="element in row1" :key="element.key" class="max-width" >
           <span class="button" :class="'color-down-' + element.key, 'color-up-' + element.key"
             @mousedown="downPress(element.key)"
-            @mouseup="upPress(element.key)"
           > {{ element.text }}</span>
         </div>
       </div>
@@ -14,7 +13,6 @@
         <div v-for="element in row2" :key="element.key" class="max-width" >
           <span class="button" :class="'color-down-' + element.key, 'color-up-' + element.key"
             @mousedown="downPress(element.key)"
-            @mouseup="upPress(element.key)"
           > {{ element.text }}</span>
         </div>
       </div>
@@ -23,7 +21,6 @@
         <div v-for="element in row3" :key="element.key" class="max-width" >
           <span class="button" :class="'color-down-' + element.key, 'color-up-' + element.key"
             @mousedown="downPress(element.key)"
-            @mouseup="upPress(element.key)"
           > {{ element.text }}</span>
         </div>
       </div>
@@ -32,7 +29,6 @@
         <div v-for="element in row4" :key="element.key" class="max-width" >
           <span class="button" :class="'color-down-' + element.key, 'color-up-' + element.key"
             @mousedown="downPress(element.key)"
-            @mouseup="upPress(element.key)"
           > {{ element.text }}</span>
         </div>
       </div>
@@ -41,7 +37,6 @@
         <div v-for="element in row5" :key="element.key" class="max-width" >
           <span class="button" :class="'color-down-' + element.key, 'color-up-' + element.key"
             @mousedown="downPress(element.key)"
-            @mouseup="upPress(element.key)"
           > {{ element.text }}</span>
         </div>
       </div>
@@ -309,6 +304,9 @@ export default {
     downPress(element) {
       const className = 'color-down-' + element;
       document.getElementsByClassName(className)[0].style.color = "blue";
+      setTimeout(() => {
+        this.upPress(element);
+      }, 3000);
     },  
     upPress(element) {
       const className = 'color-up-' + element;
