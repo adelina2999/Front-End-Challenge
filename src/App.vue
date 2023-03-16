@@ -10,6 +10,9 @@
     <div class="counter">
       Counter: {{ timerCount  }}
     </div>
+    <div class="repeat">
+      <button @click="repeat()">Repeat</button>
+    </div>
   </div>
 </template>
 <script>
@@ -308,7 +311,16 @@ export default {
         this.setColorState("color-down-", key, "gray");
         this.setColorState("color-up-", key, "gray");
       });
-      this.presedKeys = [];
+    },
+    repeat() {
+      let counter = 1;
+
+      this.presedKeys.forEach(key => {
+        setTimeout(() => {
+          this.setColorState("color-up-", key, "green");
+        }, counter * 200);
+        counter++;
+      });
     }
   }
 }
